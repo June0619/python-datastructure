@@ -1,16 +1,19 @@
-# This is a sample Python script.
+from stack import Stack
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    '''
+    Stack Test
+    '''
+    # 객체 인스턴스 할당 및 최대 저장공간 지정
+    stack = Stack(2)
+
+    # push test
+    stack.push('A')
+    stack.push('B')
+    stack.push('C')
+
+    print(stack.pop())
+    print(stack.pop())
+    print(stack.pop())
+
