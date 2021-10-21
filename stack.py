@@ -1,5 +1,27 @@
 class Stack:
 
+    """
+    1. Stack CreateS(maxStackSize)
+
+    스택의 크기가 maxStackSize인 빈 스택을 생성하고 반환한다.
+
+    2. Boolean IsFull(stack, maxStackSize)
+
+    스택이 가득 찼는지 여부를 확인하여 반환한다.
+
+    3. Stack Push(stack, item)
+
+    스택이 가득 차지 않았다면 최상단 메모리에 데이터를 삽입한다.
+
+    4. Boolean IsEmpty(stack)
+
+    스택에 자료가 하나도 존재하지 않는지 여부를 확인하여 반환한다.
+
+    5. Element Pop(stack)
+
+    스택이 비어있는지 확인한 뒤 그렇지 않다면 최상단의 자료를 꺼내 삭제하고 반환한다.
+    """
+
     # 스택 메모리를 저장할 변수
     # 생성과 동시에 초기화 됨. 외부에서 접근하지 못하도록 private 하게 선언해야 함.
     # 멤버 변수 앞에 '__'를 붙이면 외부에서 접근할 수 없음

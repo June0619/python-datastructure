@@ -1,10 +1,9 @@
 from stack import Stack
+from queue import Queue
 
-if __name__ == '__main__':
 
-    '''
-    Stack Test
-    '''
+def test_stack():
+    # Stack Test
     # 객체 인스턴스 할당 및 최대 저장공간 지정
     stack = Stack(2)
 
@@ -17,3 +16,32 @@ if __name__ == '__main__':
     print(stack.pop())
     print(stack.pop())
 
+
+def test_queue():
+    # Queue 테스트
+    queue = Queue(4)
+
+    queue.add('A')
+    queue.add('B')
+    queue.add('C')
+    queue.add('D')
+    queue.add('E')
+    print(queue.delete())
+    print(queue.delete())
+    print(queue.delete())
+    print(queue.delete())
+    print(queue.delete())
+    queue.add('A')
+    queue.add('B')
+    queue.add('C')
+    queue.add('D')
+    print(queue.delete())
+    queue.add('E')
+    print(queue.delete())
+    print(queue.delete())
+    print(queue.delete())
+    print(queue.delete())
+
+
+if __name__ == '__main__':
+    test_queue()
