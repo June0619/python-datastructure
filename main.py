@@ -1,6 +1,5 @@
-from stack import Stack
-from queue import Queue
-
+from my_collections.stack import Stack
+from my_collections.queue import Queue
 
 def test_stack():
     # Stack Test
