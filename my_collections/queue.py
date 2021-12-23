@@ -66,6 +66,7 @@ class Queue:
         else:
             self.node[self.__rear] = item
             self.__rear = (self.__rear + 1) % self.__max_queue_size
+            return self
             # print('now rear : ', self.__rear)
 
     # 큐가 비어있는지 확인하는 함수
