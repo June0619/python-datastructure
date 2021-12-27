@@ -1,20 +1,6 @@
 from my_collections.stack import Stack
 from my_collections.queue import Queue
 
-def test_stack():
-    # Stack Test
-    # 객체 인스턴스 할당 및 최대 저장공간 지정
-    stack = Stack(2)
-
-    # push test
-    stack.push('A')
-    stack.push('B')
-    stack.push('C')
-
-    print(stack.pop())
-    print(stack.pop())
-    print(stack.pop())
-
 
 def test_queue():
     # Queue 테스트
