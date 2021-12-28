@@ -43,4 +43,13 @@ def test_queue():
 
 
 if __name__ == '__main__':
-    test_queue()
+    # test_queue()
+
+    obj = Stack(5)
+    for i in range(3):
+        obj.push(i)
+
+    print(obj[0])
+
+
+

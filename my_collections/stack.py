@@ -20,6 +20,10 @@ class Stack:
     5. Element Pop(stack)
 
     스택이 비어있는지 확인한 뒤 그렇지 않다면 최상단의 자료를 꺼내 삭제하고 반환한다.
+
+    6. [] 연산자 오버로딩
+
+    원래대로는 스택에서 인덱스 번호를 통한 직접 참조는 불가능해야 하지만, C++ 에서 사용하던 연산자 오버로딩 테스트를 위해 추가함
     """
 
     # 스택 메모리를 저장할 변수
@@ -73,3 +77,7 @@ class Stack:
         else:
             self.top -= 1
             return self.__node.pop()
+
+    # [] 연산자 오버로딩 테스트
+    def __getitem__(self, item):
+        return self.__node[item]
