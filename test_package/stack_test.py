@@ -1,6 +1,5 @@
 import unittest
 from my_collections.stack import Stack
-import inspect
 from random import *
 
 
