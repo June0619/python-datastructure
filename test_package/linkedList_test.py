@@ -14,9 +14,9 @@ class MyTestCase(unittest.TestCase):
         self.__tc = randint(1, 10)
         self.linkedList = LinkedList()
 
-    def test_add(self):
+    def test_append(self):
         # 연결리스트에 데이터 링크를 추가 테스트
-        self.linkedList.add("TEST")
+        self.linkedList.append("TEST")
         self.assertEqual(self.linkedList[0], "TEST")
 
 
