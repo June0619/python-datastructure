@@ -19,6 +19,20 @@ class MyTestCase(unittest.TestCase):
         self.linkedList.append("TEST")
         self.assertEqual(self.linkedList[0], "TEST")
 
+    def test_insert(self):
+        # 특정 인덱스번호 뒤에 데이터를 삽입하는 테스트
+        test_list = list(range(5))
+
+        # 더미데이터를 연결리스트에 삽입
+        for data in test_list:
+            self.linkedList.append(data)
+
+        # 연결리스트 중간에 값 삽입
+        self.linkedList.insert(2, "TEST")
+
+        self.assertEqual(self.linkedList[2], "TEST")
+
+
 
 if __name__ == '__main__':
     unittest.main()
