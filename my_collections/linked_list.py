@@ -39,13 +39,29 @@ class LinkedList:
         last_link.next = Node(data)
         return self
 
+    def insert(self, index, data):
+        """
+        연결리스트의 특정 인덱스에 값을 삽입
+        """
+        last_link = self.__head
+
+        for _ in range(index):
+            last_link = last_link.next
+
+        temp_node = last_link.next
+        last_link.next = Node(data)
+        last_link.next.next = temp_node
+
+        return self
+
     def __getitem__(self, key):
         """
         인덱스 값을 통해 접근
         연결리스트 특성상 모든 노드를 순차조회 해야 한다.
         """
         last_link = self.__head
-        for _ in range(key):
+        # 헤드의 더미데이터 제외
+        for _ in range(key+1):
             last_link = last_link.next
         return last_link.data
 
