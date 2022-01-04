@@ -42,11 +42,20 @@ class MyTestCase(unittest.TestCase):
         self.linkedList.delete(2)
         # 연결리스트의 데이터 갯수가 4개가 되는지 테스트
         self.assertEqual(self.linkedList.length, 4)
+        # 연결리스트 2번 인덱스의 데이터가 3인지 테스트
+        self.assertEqual(self.linkedList[2], 3)
+
+        self.linkedList.to_string()
+
+        # 연결리스트 마지막 인덱스 값 삭제
+        self.linkedList.delete(3)
+        # 연결리스트의 데이터 갯수가 3개가 되는지 테스트
+        self.assertEqual(self.linkedList.length, 3)
+
+        self.linkedList.to_string()
 
     def tearDown(self):
         del self.linkedList
-
-
 
 
 if __name__ == '__main__':
