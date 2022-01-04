@@ -17,14 +17,26 @@ class Node:
 
 class LinkedList:
     """
+    멤버 변수 1. length
+    연결리스트의 데이터 숫자를 반환한다.
+
     1. LinkedList create_linkedList()
     - 연결리스트 객체 생성
 
     2. LinkedList add(data)
     - 연결리스트의 가장 마지막 노드에 새로운 데이터를 추가한다.
+
+    3. LinkedList insert(data)
+    - 연결리스트의 특정 인덱스 번호 뒤에 데이터를 삽입한다.
+
+    4. data [](index)
+    - 연결리스트의 특정 인덱스의 값을 반환한다.
+
+    * 편의상 연결리스트 내 데이터에 중복은 없다고 가정한다.
     """
     # Head 부분의 노드 Null 체크 생략용
     __head = Node("init")
+    length = 0
 
     def append(self, data):
         """
@@ -37,6 +49,7 @@ class LinkedList:
             last_link = last_link.next
 
         last_link.next = Node(data)
+        self.length += 1
         return self
 
     def insert(self, index, data):
@@ -52,6 +65,7 @@ class LinkedList:
         last_link.next = Node(data)
         last_link.next.next = temp_node
 
+        self.length += 1
         return self
 
     def __getitem__(self, key):
