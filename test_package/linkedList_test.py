@@ -7,7 +7,6 @@ class MyTestCase(unittest.TestCase):
 
     __tc = 0
 
-    # Given
     # 1. 1부터 10사이의 랜덤한 정수형 Test case 하나가 주어진다.
     # 2. 빈 연결리스트를 생성한다.
     def setUp(self):
@@ -29,8 +28,24 @@ class MyTestCase(unittest.TestCase):
 
         # 연결리스트 중간에 값 삽입
         self.linkedList.insert(2, "TEST")
-
         self.assertEqual(self.linkedList[2], "TEST")
+
+    def test_delete(self):
+        # 연결리스트 내 특정 인덱스 값을 삭제하는 테스트
+        test_list = list(range(5))
+
+        # 더미데이터를 연결리스트에 삽입
+        for data in test_list:
+            self.linkedList.append(data)
+
+        # 연결리스트 특정 인덱스 값 삭제
+        self.linkedList.delete(2)
+        # 연결리스트의 데이터 갯수가 4개가 되는지 테스트
+        self.assertEqual(self.linkedList.length, 4)
+
+    def tearDown(self):
+        del self.linkedList
+
 
 
 
