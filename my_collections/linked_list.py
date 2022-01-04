@@ -41,6 +41,8 @@ class LinkedList:
     def append(self, data):
         """
         연결리스트의 마지막 노드에 새로운 데이터를 추가
+        :param data:
+        :return self:
         """
         last_link = self.__head
 
@@ -55,6 +57,9 @@ class LinkedList:
     def insert(self, index, data):
         """
         연결리스트의 특정 인덱스에 값을 삽입
+        :param index:
+        :param data:
+        :return self:
         """
         last_link = self.__head
 
@@ -68,10 +73,50 @@ class LinkedList:
         self.length += 1
         return self
 
+    def delete(self, index):
+        """
+        연결리스트 특정 인덱스의 노드를 삭제한다
+        :param index:
+        :return:
+        """
+        last_link = self.__head
+
+        for _ in range(index):
+            last_link = last_link.next
+
+        # 삭제하려는 노드가 마지막이 아닌 경우
+        if last_link.next.next is not None:
+            temp = last_link.next.next
+            print("Deleted : ", last_link.next.data)
+            del last_link.next
+            last_link.next = temp
+        # 삭제하려는 노드가 마지막 노드인 경우
+        else:
+            del last_link.next
+            last_link.next = None
+
+        self.length -= 1
+
+    def to_string(self):
+        """
+        연결리스트 전체 item 출력
+        :return:
+        """
+        last_link = self.__head.next
+
+        data_list = []
+        while last_link is not None:
+            data_list.append(str(last_link.data))
+            last_link = last_link.next
+
+        print("Linked List Data [", ', '.join(data_list), "]")
+
     def __getitem__(self, key):
         """
         인덱스 값을 통해 접근
         연결리스트 특성상 모든 노드를 순차조회 해야 한다.
+        :param key:
+        :return last_link.data:
         """
         last_link = self.__head
         # 헤드의 더미데이터 제외
