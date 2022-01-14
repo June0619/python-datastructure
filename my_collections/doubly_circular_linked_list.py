@@ -9,10 +9,8 @@ class Node:
     # 다음 노드 링크
     next = None
 
-    def __init__(self, p_data, p_prev):
+    def __init__(self, p_data):
         self.data = p_data
-        self.prev = p_prev
-
 
 class DoublyCircularLinkedList:
     """
@@ -22,10 +20,10 @@ class DoublyCircularLinkedList:
     1. DoublyCircularLinkedList create_doubly_circular_linked_list()
     - 이중 원형 연결 리스트 객체 생성
 
-    2. LinkedList add(data)
+    2. DoublyCircularLinkedList add(data)
     - 연결리스트의 가장 마지막 노드에 새로운 데이터를 추가한다.
 
-    3. LinkedList insert(data)
+    3. DoublyCircularLinkedList insert(data)
     - 연결리스트의 특정 인덱스 번호 뒤에 데이터를 삽입한다.
 
     4. data [](index)
@@ -33,9 +31,14 @@ class DoublyCircularLinkedList:
 
     * 편의상 연결리스트 내 데이터에 중복은 없다고 가정한다.
     """
-    # Head 부분의 노드 Null 체크 생략용
-    __head = Node("init")
+
+    __head = None
+    __tail = None
     length = 0
+
+    # Head 노드의 Null 체크 분기를 생략하기 위해 임의의 init 노드를 할당한다.
+    def __init__(self):
+        self.__head = Node("init")
 
     def append(self, data):
         """
@@ -45,11 +48,29 @@ class DoublyCircularLinkedList:
         """
         last_link = self.__head
 
-        # 노드의 링크 부분이 존재하지 않을때 까지 반복
-        while last_link.next is not None:
+        # 노드의 링크 부분이 헤드로 돌아가지 않을때까지 반복
+        while last_link.next is not None and last_link.next is not self.__head.next:
             last_link = last_link.next
 
-        last_link.next = Node(data)
+        # data insert
+        new_node = Node(data)
+
+        # link connection
+        if self.length > 0:
+            # prev
+            new_node.prev = last_link
+            self.__head.prev = new_node
+            # next
+            new_node.next = self.__head.next
+        else:
+            # prev
+            new_node.prev = new_node
+            # next
+            new_node.next = new_node
+
+        # link
+        last_link.next = new_node
+
         self.length += 1
         return self
 
@@ -121,5 +142,5 @@ class DoublyCircularLinkedList:
         # 헤드의 더미데이터 제외
         for _ in range(key+1):
             last_link = last_link.next
-        return last_link.data
+        return last_link
 
