@@ -49,7 +49,8 @@ class DoublyCircularLinkedList:
         last_link = self.__head
 
         # 노드의 링크 부분이 헤드로 돌아가지 않을때까지 반복
-        while last_link.next is not None and last_link.next is not self.__head.next:
+        while last_link.next is not None \
+                and last_link.next is not self.__head.next:
             last_link = last_link.next
 
         # data insert
@@ -67,6 +68,8 @@ class DoublyCircularLinkedList:
             new_node.prev = new_node
             # next
             new_node.next = new_node
+            # head 교체
+            self.__head = new_node
 
         # link
         last_link.next = new_node
