@@ -12,6 +12,7 @@ class Node:
     def __init__(self, p_data):
         self.data = p_data
 
+
 class DoublyCircularLinkedList:
     """
     연결리스트에서 마지막 노드와 첫번째노드가 서로 연결되어 있고, 데이터가 선행 노드와 후행 노드를 모두 바라보게 양방향으로 이동 가능하도록
@@ -33,7 +34,6 @@ class DoublyCircularLinkedList:
     """
 
     __head = None
-    __tail = None
     length = 0
 
     # Head 노드의 Null 체크 분기를 생략하기 위해 임의의 init 노드를 할당한다.
@@ -77,6 +77,66 @@ class DoublyCircularLinkedList:
         self.length += 1
         return self
 
+    def insert(self, idx, data):
+        """
+        연결리스트 중간 index 에 데이터 삽입
+        :param idx:
+        :param data:
+        :return self:
+        """
+        last_link = self.__head
+
+        # 인덱스 범위보다 클 경우 Index Error 반환
+        if idx > self.length-1:
+            raise IndexError('linked list index out of range')
+
+        # 삽입할 인덱스 위치까지 이동
+        for _ in range(idx):
+            last_link = last_link.next
+
+        # 삽입할 데이터 생성
+        new_node = Node(data)
+
+        temp = last_link.prev
+
+        # next
+        temp.next = new_node
+        new_node.next = last_link
+
+        # prev
+        new_node.prev = temp
+        last_link.prev = new_node
+
+        self.length += 1
+
+        return self
+
+    def remove(self, idx):
+        """
+        연결리스트 내 item 삭제
+        :param idx:
+        :return data:
+        """
+
+        last_link = self.__head
+
+        # 삭제할 인덱스 위치까지 이동
+        for _ in range(idx):
+            last_link = last_link.next
+
+        temp = last_link.next
+        last_link = last_link.prev
+
+        removed_data = last_link.next.data
+        del last_link.next
+
+        last_link.next = temp
+        temp.prev = last_link
+
+        self.length -= 1
+
+        return removed_data
+
     def to_string(self):
         """
         연결리스트 전체 item 출력
@@ -105,4 +165,3 @@ class DoublyCircularLinkedList:
         for _ in range(key):
             last_link = last_link.next
         return last_link
-

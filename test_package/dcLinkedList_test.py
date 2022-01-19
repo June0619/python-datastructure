@@ -27,11 +27,29 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(self.dcLinkedList[0].next, self.dcLinkedList[1])
         self.assertEqual(self.dcLinkedList[1].prev, self.dcLinkedList[0])
 
+    def test_insert(self):
+        self.dcLinkedList.append(1).append(2).insert(1, 99)
+        self.dcLinkedList.to_string()
+
+        self.assertEqual(99, self.dcLinkedList[1].data)
+        self.assertEqual(3, self.dcLinkedList.length)
+
+        # Index Err Test
+        self.assertRaises(IndexError, self.dcLinkedList.insert, 4, 'err')
+
     def test_get_item(self):
         self.dcLinkedList.append(1)
         self.dcLinkedList.append(2)
         self.dcLinkedList.append(3)
         self.assertEqual(3, self.dcLinkedList[2].data)
+
+    def test_remove(self):
+        self.dcLinkedList.append(1).append(2).append(3)
+
+        self.assertEqual(2, self.dcLinkedList.remove(1))
+
+        self.assertEqual(3, self.dcLinkedList[1].data)
+        self.assertEqual(2, self.dcLinkedList.length)
 
     def tearDown(self):
         del self.dcLinkedList
