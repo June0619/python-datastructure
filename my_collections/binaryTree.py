@@ -3,21 +3,27 @@ class Node:
     트리의 노드
     """
 
+    # 왼쪽 자식 노드
     __l_link = None
+    # 오른쪽 자식 노드
     __r_link = None
-    __data = None
+    # 트리의 데이터
+    data = None
 
-    def __init__(self, data, l_link, r_link):
+    def __init__(self, data, l_link=None, r_link=None):
         self.__l_link = l_link
         self.__r_link = r_link
-        self.__data = data
+        self.data = data
 
     def getData(self):
-        return self.__data
+        return self.data
 
 
 class BinaryTree:
     """
+    - 해당 트리 객체는 완전 이진 트리를 기준으로 작성한다. (레벨의 모든 노드를 채우고, 왼쪽부터 삽입)
+    - 데이터 입력시 특별한 정렬 알고리즘은 없는 것으로 한다.
+
     1. Tree Create()
     ::= 트리를 생성하고 루트 노드를 가리키는 포인터를 반환한다.
 
@@ -57,6 +63,13 @@ class BinaryTree:
     13. Replace(n, m)
     ::= 노드 n을 노드 m으로 교체한다.
     """
+
+    # 트리의 루트 노드
+    __root = None
+
+    # 트리의 초기화 함수
+    def __init__(self):
+        print("GENERATED TREE")
 
 
 
