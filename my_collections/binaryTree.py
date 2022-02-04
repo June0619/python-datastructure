@@ -35,9 +35,6 @@ class BinaryTree:
     def __init__(self):
         print("Generated TREE")
 
-    def call_pre_order(self):
-        self.pre_order(self.root)
-
     def pre_order(self, ptr):
         if ptr is not None:
             print(ptr.data)
@@ -46,6 +43,31 @@ class BinaryTree:
         else:
             return
 
+    def call_pre_order(self):
+        print("CALL PRE ORDER")
+        self.pre_order(self.root)
+
+    def in_order(self, ptr):
+        if ptr is not None:
+            self.in_order(ptr.left)
+            print(ptr.data)
+            self.in_order(ptr.right)
+        else:
+            return
+
+    def call_in_order(self):
+        print("CALL IN ORDER")
+        self.in_order(self.root)
+
+    def post_order(self, ptr):
+        if ptr is not None:
+            self.post_order(ptr.left)
+            self.post_order(ptr.right)
+            print(ptr.data)
+
+    def call_post_order(self):
+        print("CALL POST ORDER")
+        self.post_order(self.root)
 
 
 

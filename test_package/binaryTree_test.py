@@ -25,7 +25,12 @@ class MyTestCase(unittest.TestCase):
         root.right.left = Node(5)
 
         self.binaryTree.root = root
+
+        # 순회 테스트
         self.binaryTree.call_pre_order()
+        self.binaryTree.call_in_order()
+        self.binaryTree.call_post_order()
+
 
 
 if __name__ == '__main__':
