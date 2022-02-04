@@ -1,5 +1,5 @@
 import unittest
-from my_collections.binaryTree import BinaryTree
+from my_collections.binaryTree import BinaryTree, Node
 from random import randint
 
 
@@ -17,7 +17,15 @@ class MyTestCase(unittest.TestCase):
         self.assertEqual(type(self.binaryTree), BinaryTree)  # add assertion here
 
     def test_insert(self):
-        pass
+        root = Node(10)
+        root.left = Node(8)
+        root.right = Node(9)
+        root.left.left = Node(6)
+        root.left.right = Node(7)
+        root.right.left = Node(5)
+
+        self.binaryTree.root = root
+        self.binaryTree.call_pre_order()
 
 
 if __name__ == '__main__':
