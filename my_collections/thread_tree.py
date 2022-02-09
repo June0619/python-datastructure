@@ -7,10 +7,8 @@ class TNode:
     left = None
     # 오른쪽 자식 노드
     right = None
-    # 왼쪽 쓰레드
-    left_t = None
-    # 오른쪽 쓰레드
-    right_t = None
+    # 스레드 플래그 변수
+    is_flag = False
     # 트리의 데이터
     data = None
 
